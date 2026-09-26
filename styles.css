@@ -1426,6 +1426,97 @@ abbr.cyber-term:focus-visible,
   }
 }
 
+.welcome-dialog-open {
+  overflow: hidden;
+}
+
+.welcome-dialog {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(3, 8, 16, 0.82);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.welcome-dialog[hidden] {
+  display: none;
+}
+
+.welcome-dialog-panel {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: min(1080px, 100%, calc((100vh - 2rem) * 1.778));
+  width: min(1080px, 100%, calc((100dvh - 2rem) * 1.778));
+  aspect-ratio: 1366 / 768;
+  max-height: calc(100vh - 2rem);
+  max-height: calc(100dvh - 2rem);
+  overflow: hidden;
+  border: 1px solid rgba(0, 243, 255, 0.55);
+  border-radius: 8px;
+  background: #07111d;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6), 0 0 32px rgba(0, 243, 255, 0.16);
+}
+
+.welcome-dialog-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.welcome-dialog-close {
+  position: absolute;
+  z-index: 1;
+  top: 0.65rem;
+  right: 0.65rem;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(151, 232, 255, 0.7);
+  border-radius: 6px;
+  background: rgba(4, 12, 22, 0.9);
+  color: #f8fafc;
+  font-size: 2rem;
+  line-height: 1;
+  transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.welcome-dialog-close:hover {
+  border-color: var(--cyber-cyan);
+  background: rgba(0, 243, 255, 0.18);
+  color: var(--cyber-cyan);
+}
+
+@media (max-width: 480px) {
+  .welcome-dialog {
+    padding: 0.65rem;
+  }
+
+  .welcome-dialog-panel {
+    width: min(100%, calc((100vh - 1.3rem) * 1.778));
+    width: min(100%, calc((100dvh - 1.3rem) * 1.778));
+    max-height: calc(100vh - 1.3rem);
+    max-height: calc(100dvh - 1.3rem);
+  }
+
+  .welcome-dialog-image {
+    height: 100%;
+  }
+
+  .welcome-dialog-close {
+    top: 0.4rem;
+    right: 0.4rem;
+    width: 42px;
+    height: 42px;
+  }
+}
+
 /* CYBERDEV Welcome */
 .welcome-view {
   padding-top: .25rem;

@@ -2086,10 +2086,71 @@ Device type: router | Running: Cisco IOS 15.2
   }
 };
 
+function initWelcomeDialog() {
+  const overlay = document.getElementById("welcome-dialog");
+  const panel = overlay && overlay.querySelector("[role='dialog']");
+  const closeButton = overlay && overlay.querySelector(".welcome-dialog-close");
+  if (!overlay || !panel || !closeButton) return;
+
+  const backgroundElements = Array.from(document.body.children).filter(element => element !== overlay);
+  const previousInertStates = backgroundElements.map(element => element.inert);
+  backgroundElements.forEach(element => { element.inert = true; });
+  document.documentElement.classList.add("welcome-dialog-open");
+  document.body.classList.add("welcome-dialog-open");
+
+  const closeDialog = () => {
+    if (overlay.hidden) return;
+    overlay.hidden = true;
+    overlay.setAttribute("aria-hidden", "true");
+    document.documentElement.classList.remove("welcome-dialog-open");
+    document.body.classList.remove("welcome-dialog-open");
+    backgroundElements.forEach((element, index) => { element.inert = previousInertStates[index]; });
+  };
+
+  closeButton.addEventListener("click", closeDialog);
+  overlay.addEventListener("click", event => {
+    if (event.target === overlay) closeDialog();
+  });
+
+  document.addEventListener("keydown", event => {
+    if (overlay.hidden) return;
+
+    if (event.key === "Escape") {
+      event.preventDefault();
+      event.stopPropagation();
+      closeDialog();
+      return;
+    }
+
+    if (event.key !== "Tab") return;
+    const focusableElements = Array.from(panel.querySelectorAll(
+      "a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex='-1'])"
+    ));
+    if (focusableElements.length === 0) {
+      event.preventDefault();
+      panel.focus();
+      return;
+    }
+
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
+    if (event.shiftKey && (document.activeElement === firstElement || !panel.contains(document.activeElement))) {
+      event.preventDefault();
+      lastElement.focus();
+    } else if (!event.shiftKey && (document.activeElement === lastElement || !panel.contains(document.activeElement))) {
+      event.preventDefault();
+      firstElement.focus();
+    }
+  });
+
+  closeButton.focus();
+}
+
 // Start application when DOM is ready
 if (typeof document !== "undefined") {
   document.addEventListener("DOMContentLoaded", () => {
     App.init();
+    initWelcomeDialog();
   });
 }
 
