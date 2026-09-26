@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Cybersecurity & Networking Master Platform - Complete professional reference, interactive security tools, hands-on SOC labs, attack/defense guides, and career roadmaps.">
+  <meta name="description"
+    content="Cybersecurity & Networking Master Platform - Complete professional reference, interactive security tools, hands-on SOC labs, attack/defense guides, and career roadmaps.">
   <meta name="theme-color" content="#090d16">
   <meta name="color-scheme" content="dark light">
-  <meta property="og:title" content="CYBERDEV // 2050 — Cybersecurity Master Platform">
-  <meta property="og:description" content="Zero-to-pro cybersecurity learning, labs, tools, protocols and roadmaps in a lightweight static platform.">
+  <meta property="og:title" content="CYBERDEV — Cybersecurity Master Platform">
+  <meta property="og:description"
+    content="Zero-to-pro cybersecurity learning, labs, tools, protocols and roadmaps in a lightweight static platform.">
   <meta property="og:type" content="website">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <title>Cybersecurity & Networking Master Platform | Professional Security Engineering</title>
+  <title>CYBERDEV | Zero to Pro Cybersecurity Learning Platform</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-  <a class="skip-link" href="#learn">Skip to main content</a>
+  <a class="skip-link" href="#view-home">Skip to main content</a>
   <!-- Global Tooltip Element (Section F) -->
   <div id="global-tooltip" role="tooltip" aria-hidden="true"></div>
 
@@ -24,9 +28,9 @@
   <!-- Header & Navigation -->
   <header class="site-header" role="banner">
     <div class="header-container">
-      <a href="#protocols" class="logo-brand" data-track="protocols" aria-label="Cybersecurity Master Platform Home">
+      <a href="#home" class="logo-brand" data-track="home" aria-label="CYBERDEV Home">
         <span class="logo-badge">🛡️</span>
-        <span class="logo-text">CYBER<span>SEC</span> // NETWORKING</span>
+        <span class="logo-text">CYBERDEV</span>
       </a>
 
       <nav class="site-nav" role="navigation" aria-label="Main Navigation">
@@ -56,6 +60,7 @@
 
   <!-- Mobile Navigation Drawer -->
   <nav id="mobile-nav-drawer" class="mobile-nav-drawer" aria-label="Mobile Navigation">
+    <a href="#home" class="nav-link" data-track="home">⌂ CYBERDEV</a>
     <a href="#learn" class="nav-link" data-track="learn">🎓 Learn Zero→Pro</a>
     <a href="#protocols" class="nav-link" data-track="protocols">📡 Protocols & OSI Model</a>
     <a href="#defense" class="nav-link" data-track="defense">🛡️ Defense Architecture</a>
@@ -68,37 +73,90 @@
 
   <!-- Main Content Area -->
   <main class="main-wrapper" role="main">
-    <!-- Hero Banner & System Overview -->
-    <section class="hero-section" aria-label="Platform Overview">
-      <div class="hero-tag">⚡ Professional Security Engineering Suite</div>
-      <h1 class="hero-title">Networking for <span class="gradient-text">Cyber Security</span></h1>
-      <p class="hero-desc">
-        Networking is the backbone of cyber defense. From packet inspection and stateful firewalls to malware telemetry and zero-trust perimeters, master every protocol, attack surface, and security control.
-      </p>
-
-      <!-- Quick Metrics Grid -->
-      <div class="hero-stats-grid">
-        <div class="stat-card">
-          <div class="stat-value">7</div>
-          <div class="stat-label">OSI Layers Analyzed</div>
+    <!-- CYBERDEV Welcome -->
+    <section id="view-home" class="view-panel welcome-view active" aria-labelledby="welcome-title">
+      <div class="welcome-hero">
+        <div class="welcome-copy">
+          <p class="welcome-eyebrow"><span class="status-indicator"></span> Independent learning // secure by design</p>
+          <h1 id="welcome-title" class="welcome-title">CYBERDEV</h1>
+          <p class="welcome-subtitle">Zero to Pro Cybersecurity Learning Platform</p>
+          <p class="welcome-intro">Networking is the backbone of cyber defense. Build from core concepts into packet
+            inspection, attack-surface analysis, defensive controls, guided practice, and career-ready security skills.
+          </p>
+          <div class="welcome-actions">
+            <a class="welcome-action welcome-action-primary" href="#learn" data-track="learn">Start Learning <span
+                aria-hidden="true">↗</span></a>
+            <a class="welcome-action welcome-action-secondary" href="#roadmaps" data-track="roadmaps">Explore Roadmap
+              <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="welcome-metrics" aria-label="Platform overview">
+            <span><strong>21</strong> learning levels</span>
+            <span><strong>8</strong> security tools</span>
+            <span><strong>7</strong> hands-on labs</span>
+            <span><strong>7</strong> OSI layers</span>
+            <span><strong>20+</strong> protocols</span>
+            <span><strong id="stat-roadmap-pct">0%</strong> roadmap mastery</span>
+          </div>
         </div>
-        <div class="stat-card">
-          <div class="stat-value">20+</div>
-          <div class="stat-label">Protocols & Port Profiles</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">8</div>
-          <div class="stat-label">Interactive Security Tools</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">7</div>
-          <div class="stat-label">Hands-on Cyber Labs</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value" id="stat-roadmap-pct">0%</div>
-          <div class="stat-label">Roadmap Mastery</div>
+        <div class="welcome-visual" aria-hidden="true">
+          <div class="signal-ring signal-ring-outer"></div>
+          <div class="signal-ring signal-ring-inner"></div>
+          <div class="signal-core"><span>CD</span><i></i></div>
+          <span class="signal-node node-top">SYS // ONLINE</span>
+          <span class="signal-node node-left">ZERO TRUST</span>
+          <span class="signal-node node-right">SKILL PATH 01—21</span>
+          <span class="signal-node node-bottom">DEFEND THE FUTURE</span>
+          <svg class="signal-lines" viewBox="0 0 420 420" focusable="false">
+            <path
+              d="M210 20V105M210 315v85M20 210h85M315 210h85M75 75l65 65M280 280l65 65M345 75l-65 65M140 280l-65 65" />
+            <circle cx="210" cy="20" r="3" />
+            <circle cx="400" cy="210" r="3" />
+            <circle cx="210" cy="400" r="3" />
+            <circle cx="20" cy="210" r="3" />
+          </svg>
         </div>
       </div>
+
+      <div class="welcome-section-heading">
+        <p class="welcome-eyebrow">Your learning environment</p>
+        <h2>Four ways to build your edge.</h2>
+      </div>
+      <div class="welcome-feature-grid">
+        <a class="welcome-feature-card" href="#learn" data-track="learn">
+          <span class="feature-index">01 / LEARN</span><span class="feature-icon" aria-hidden="true">⌘</span>
+          <h3>Learning Modules</h3>
+          <p>Progress from core computer and network concepts to advanced security specializations.</p><span
+            class="feature-link">Open learning path <b aria-hidden="true">↗</b></span>
+        </a>
+        <a class="welcome-feature-card" href="#tools" data-track="tools">
+          <span class="feature-index">02 / APPLY</span><span class="feature-icon" aria-hidden="true">⌁</span>
+          <h3>Interactive Tools</h3>
+          <p>Work through practical network, cryptography, encoding, and defensive engineering utilities.</p><span
+            class="feature-link">Explore the toolkit <b aria-hidden="true">↗</b></span>
+        </a>
+        <a class="welcome-feature-card" href="#labs" data-track="labs">
+          <span class="feature-index">03 / PRACTICE</span><span class="feature-icon" aria-hidden="true">◉</span>
+          <h3>Hands-on Labs</h3>
+          <p>Investigate realistic scenarios in safe, browser-based SOC and network security simulations.</p><span
+            class="feature-link">Enter the labs <b aria-hidden="true">↗</b></span>
+        </a>
+        <a class="welcome-feature-card" href="#resources">
+          <span class="feature-index">04 / REFERENCE</span><span class="feature-icon" aria-hidden="true">⌖</span>
+          <h3>Resources</h3>
+          <p>Keep trusted standards, official documentation, and essential references close at hand.</p><span
+            class="feature-link">Browse resources <b aria-hidden="true">↗</b></span>
+        </a>
+      </div>
+
+      <section class="developer-strip" aria-label="Developer">
+        <span class="developer-mark" aria-hidden="true">CD<span>.</span></span>
+        <div>
+          <p class="developer-label">Built for the next generation of defenders</p>
+          <h2>Developed by Rishabh Dhankhar</h2>
+          <p class="developer-role">Developer</p>
+        </div>
+        <p class="developer-manifesto">Code <span>•</span> Learn <span>•</span> Build <span>•</span> Secure</p>
+      </section>
     </section>
 
     <!-- Sub-track Quick Navigation Bar -->
@@ -118,22 +176,31 @@
       <div class="section-header">
         <span class="section-tag">Zero → Professional Learning System</span>
         <h2 id="heading-learn" class="section-title">Cybersecurity Learning Hub</h2>
-        <p class="section-subtitle">A structured path from computer basics to advanced security engineering. Every module includes concepts, topics and a safe practical exercise.</p>
+        <p class="section-subtitle">A structured path from computer basics to advanced security engineering. Every
+          module includes concepts, topics and a safe practical exercise.</p>
       </div>
       <div class="learning-controls">
-        <input id="learning-filter-input" class="form-input" type="search" placeholder="Search Linux, networking, web security, cloud..." aria-label="Search learning modules">
-        <select id="learning-level-filter" class="form-input" aria-label="Filter learning level"><option value="all">All levels</option><option value="foundation">Foundation (0–5)</option><option value="security">Security (6–12)</option><option value="specialization">Specialization (13–20)</option></select>
+        <input id="learning-filter-input" class="form-input" type="search"
+          placeholder="Search Linux, networking, web security, cloud..." aria-label="Search learning modules">
+        <select id="learning-level-filter" class="form-input" aria-label="Filter learning level">
+          <option value="all">All levels</option>
+          <option value="foundation">Foundation (0–5)</option>
+          <option value="security">Security (6–12)</option>
+          <option value="specialization">Specialization (13–20)</option>
+        </select>
       </div>
       <div id="learning-path-grid" class="grid-cards learning-grid"></div>
     </section>
 
     <!-- Track 1: Protocols & OSI Model -->
-    <section id="view-protocols" class="view-panel active" aria-labelledby="heading-protocols">
+    <section id="view-protocols" class="view-panel" aria-labelledby="heading-protocols">
       <div class="section-header">
         <span class="section-tag">Network Architecture Fundamentals</span>
         <h2 id="heading-protocols" class="section-title">OSI 7-Layer & TCP/IP Model Breakdown</h2>
         <p class="section-subtitle">
-          Hover or tap on any highlighted abbreviation (like <abbr class="cyber-term" data-abbr="IP">IP</abbr>, <abbr class="cyber-term" data-abbr="TCP">TCP</abbr>, or <abbr class="cyber-term" data-abbr="DNS">DNS</abbr>) to inspect its full definition and security context.
+          Hover or tap on any highlighted abbreviation (like <abbr class="cyber-term" data-abbr="IP">IP</abbr>, <abbr
+            class="cyber-term" data-abbr="TCP">TCP</abbr>, or <abbr class="cyber-term" data-abbr="DNS">DNS</abbr>) to
+          inspect its full definition and security context.
         </p>
       </div>
 
@@ -146,7 +213,8 @@
         <span class="section-tag">Protocol Directory</span>
         <h3 class="section-title">Critical Protocols in Cyber Defense</h3>
         <p class="section-subtitle">
-          In-depth technical breakdown of communication protocols, port assignments, transport modes, security risks, hardening recipes, and Wireshark filter syntax.
+          In-depth technical breakdown of communication protocols, port assignments, transport modes, security risks,
+          hardening recipes, and Wireshark filter syntax.
         </p>
       </div>
 
@@ -161,7 +229,10 @@
         <span class="section-tag">Defensive Engineering</span>
         <h2 id="heading-defense" class="section-title">Network Defense Mechanisms & Controls</h2>
         <p class="section-subtitle">
-          Architect resilient perimeters utilizing packet-filtering, stateful inspection, <abbr class="cyber-term" data-abbr="WAF">WAF</abbr>, <abbr class="cyber-term" data-abbr="IDS">IDS</abbr>/<abbr class="cyber-term" data-abbr="IPS">IPS</abbr>, <abbr class="cyber-term" data-abbr="DMZ">DMZ</abbr> network segmentation, and Zero Trust models.
+          Architect resilient perimeters utilizing packet-filtering, stateful inspection, <abbr class="cyber-term"
+            data-abbr="WAF">WAF</abbr>, <abbr class="cyber-term" data-abbr="IDS">IDS</abbr>/<abbr class="cyber-term"
+            data-abbr="IPS">IPS</abbr>, <abbr class="cyber-term" data-abbr="DMZ">DMZ</abbr> network segmentation, and
+          Zero Trust models.
         </p>
       </div>
 
@@ -185,7 +256,11 @@
         <span class="section-tag">Adversary Tactics</span>
         <h2 id="heading-attacks" class="section-title">Network & Web Attacks Hub</h2>
         <p class="section-subtitle">
-          Detailed technical mechanics of <abbr class="cyber-term" data-abbr="DDoS">DDoS</abbr>, <abbr class="cyber-term" data-abbr="MITM">MITM</abbr>, <abbr class="cyber-term" data-abbr="ARP">ARP</abbr> Poisoning, <abbr class="cyber-term" data-abbr="DNS">DNS</abbr> Cache Poisoning, and OWASP Top 10 vulnerabilities like <abbr class="cyber-term" data-abbr="XSS">XSS</abbr>, <abbr class="cyber-term" data-abbr="CSRF">CSRF</abbr>, and <abbr class="cyber-term" data-abbr="SSRF">SSRF</abbr>.
+          Detailed technical mechanics of <abbr class="cyber-term" data-abbr="DDoS">DDoS</abbr>, <abbr
+            class="cyber-term" data-abbr="MITM">MITM</abbr>, <abbr class="cyber-term" data-abbr="ARP">ARP</abbr>
+          Poisoning, <abbr class="cyber-term" data-abbr="DNS">DNS</abbr> Cache Poisoning, and OWASP Top 10
+          vulnerabilities like <abbr class="cyber-term" data-abbr="XSS">XSS</abbr>, <abbr class="cyber-term"
+            data-abbr="CSRF">CSRF</abbr>, and <abbr class="cyber-term" data-abbr="SSRF">SSRF</abbr>.
         </p>
       </div>
 
@@ -209,7 +284,8 @@
         <span class="section-tag">Operational Tool Suite</span>
         <h2 id="heading-tools" class="section-title">Cybersecurity Interactive Utilities</h2>
         <p class="section-subtitle">
-          Eight production-ready utilities tested across valid, invalid, empty, and boundary inputs. Each tool includes 1-click Copy, State Reset, and File Export/Download.
+          Eight production-ready utilities tested across valid, invalid, empty, and boundary inputs. Each tool includes
+          1-click Copy, State Reset, and File Export/Download.
         </p>
       </div>
 
@@ -245,7 +321,8 @@
           </div>
           <div class="form-group">
             <label for="hash-input" class="form-label">Input Plaintext / Payload</label>
-            <textarea id="hash-input" class="form-textarea" placeholder="Type or paste payload string to generate MD5, SHA-1, SHA-256..."></textarea>
+            <textarea id="hash-input" class="form-textarea"
+              placeholder="Type or paste payload string to generate MD5, SHA-1, SHA-256..."></textarea>
           </div>
           <div class="tool-actions-row">
             <button id="btn-gen-hash" class="btn-primary">Compute Hashes</button>
@@ -283,13 +360,15 @@
           </div>
           <div class="form-group">
             <label for="pwd-eval-input" class="form-label">Test Password / Passphrase</label>
-            <input type="text" id="pwd-eval-input" class="form-input" placeholder="Type password (evaluated entirely client-side)...">
+            <input type="text" id="pwd-eval-input" class="form-input"
+              placeholder="Type password (evaluated entirely client-side)...">
           </div>
           <div class="tool-actions-row">
             <button id="btn-copy-pwd" class="btn-secondary">Copy Analysis</button>
             <button id="btn-reset-pwd" class="btn-secondary">Reset</button>
           </div>
-          <div class="tool-output-area" id="pwd-eval-output" aria-live="polite">Type password to evaluate strength...</div>
+          <div class="tool-output-area" id="pwd-eval-output" aria-live="polite">Type password to evaluate strength...
+          </div>
         </div>
 
         <!-- Tool 5: Security Encoder / Decoder -->
@@ -318,7 +397,8 @@
             <button id="btn-reset-encoder" class="btn-secondary">Reset</button>
             <button id="btn-download-encoder" class="btn-secondary">Download</button>
           </div>
-          <div class="tool-output-area" id="encoder-output" aria-live="polite">Encoded/Decoded text will appear here...</div>
+          <div class="tool-output-area" id="encoder-output" aria-live="polite">Encoded/Decoded text will appear here...
+          </div>
         </div>
 
         <!-- Tool 6: Firewall & ACL Rule Builder -->
@@ -435,7 +515,8 @@
         <span class="section-tag">Practical Training</span>
         <h2 id="heading-labs" class="section-title">Hands-on Cybersecurity Labs</h2>
         <p class="section-subtitle">
-          Execute realistic packet captures, Nmap reconnaissance in a simulated terminal, port vulnerability triage, firewall rule verifications, and SOC incident triage.
+          Execute realistic packet captures, Nmap reconnaissance in a simulated terminal, port vulnerability triage,
+          firewall rule verifications, and SOC incident triage.
         </p>
       </div>
 
@@ -457,7 +538,9 @@
         <span class="section-tag">Curriculum & Career Pathways</span>
         <h2 id="heading-roadmaps" class="section-title">Cyber Security Networking Roadmap</h2>
         <p class="section-subtitle">
-          Track your progress through four progressive phases from networking foundations to professional <abbr class="cyber-term" data-abbr="SOC">SOC</abbr> engineering. Your checklist state is automatically persisted in local storage.
+          Track your progress through four progressive phases from networking foundations to professional <abbr
+            class="cyber-term" data-abbr="SOC">SOC</abbr> engineering. Your checklist state is automatically persisted
+          in local storage.
         </p>
       </div>
 
@@ -480,7 +563,18 @@
         <span class="section-tag">Dictionary of Acronyms & Terms</span>
         <h2 id="heading-glossary" class="section-title">Comprehensive Cybersecurity Glossary</h2>
         <p class="section-subtitle">
-          Instant reference for all essential terms including <abbr class="cyber-term" data-abbr="IP">IP</abbr>, <abbr class="cyber-term" data-abbr="MAC">MAC</abbr>, <abbr class="cyber-term" data-abbr="ARP">ARP</abbr>, <abbr class="cyber-term" data-abbr="DNS">DNS</abbr>, <abbr class="cyber-term" data-abbr="DHCP">DHCP</abbr>, <abbr class="cyber-term" data-abbr="TCP">TCP</abbr>, <abbr class="cyber-term" data-abbr="UDP">UDP</abbr>, <abbr class="cyber-term" data-abbr="HTTP">HTTP</abbr>, <abbr class="cyber-term" data-abbr="HTTPS">HTTPS</abbr>, <abbr class="cyber-term" data-abbr="SSH">SSH</abbr>, <abbr class="cyber-term" data-abbr="VPN">VPN</abbr>, <abbr class="cyber-term" data-abbr="XSS">XSS</abbr>, <abbr class="cyber-term" data-abbr="CSRF">CSRF</abbr>, <abbr class="cyber-term" data-abbr="SSRF">SSRF</abbr>, <abbr class="cyber-term" data-abbr="OSINT">OSINT</abbr>, <abbr class="cyber-term" data-abbr="SOC">SOC</abbr>, <abbr class="cyber-term" data-abbr="SIEM">SIEM</abbr>, <abbr class="cyber-term" data-abbr="IDS">IDS</abbr>, <abbr class="cyber-term" data-abbr="IPS">IPS</abbr>, <abbr class="cyber-term" data-abbr="API">API</abbr>, and <abbr class="cyber-term" data-abbr="JWT">JWT</abbr>.
+          Instant reference for all essential terms including <abbr class="cyber-term" data-abbr="IP">IP</abbr>, <abbr
+            class="cyber-term" data-abbr="MAC">MAC</abbr>, <abbr class="cyber-term" data-abbr="ARP">ARP</abbr>, <abbr
+            class="cyber-term" data-abbr="DNS">DNS</abbr>, <abbr class="cyber-term" data-abbr="DHCP">DHCP</abbr>, <abbr
+            class="cyber-term" data-abbr="TCP">TCP</abbr>, <abbr class="cyber-term" data-abbr="UDP">UDP</abbr>, <abbr
+            class="cyber-term" data-abbr="HTTP">HTTP</abbr>, <abbr class="cyber-term" data-abbr="HTTPS">HTTPS</abbr>,
+          <abbr class="cyber-term" data-abbr="SSH">SSH</abbr>, <abbr class="cyber-term" data-abbr="VPN">VPN</abbr>,
+          <abbr class="cyber-term" data-abbr="XSS">XSS</abbr>, <abbr class="cyber-term" data-abbr="CSRF">CSRF</abbr>,
+          <abbr class="cyber-term" data-abbr="SSRF">SSRF</abbr>, <abbr class="cyber-term"
+            data-abbr="OSINT">OSINT</abbr>, <abbr class="cyber-term" data-abbr="SOC">SOC</abbr>, <abbr
+            class="cyber-term" data-abbr="SIEM">SIEM</abbr>, <abbr class="cyber-term" data-abbr="IDS">IDS</abbr>, <abbr
+            class="cyber-term" data-abbr="IPS">IPS</abbr>, <abbr class="cyber-term" data-abbr="API">API</abbr>, and
+          <abbr class="cyber-term" data-abbr="JWT">JWT</abbr>.
         </p>
       </div>
 
@@ -496,11 +590,14 @@
   </main>
 
   <!-- Global Search Modal (Section E) -->
-  <div id="search-modal-backdrop" class="search-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="search-modal-title">
+  <div id="search-modal-backdrop" class="search-modal-backdrop" role="dialog" aria-modal="true"
+    aria-labelledby="search-modal-title">
     <div class="search-modal-dialog">
       <div class="search-input-header">
         <span style="font-size:1.2rem;">🔍</span>
-        <input type="text" id="global-search-input" placeholder="Search ARP, DNS, TCP, UDP, XSS, Nmap, Wireshark, Linux, OWASP, VPN..." aria-label="Search all platform content">
+        <input type="text" id="global-search-input"
+          placeholder="Search ARP, DNS, TCP, UDP, XSS, Nmap, Wireshark, Linux, OWASP, VPN..."
+          aria-label="Search all platform content">
         <kbd class="kbd-shortcut">ESC</kbd>
       </div>
       <ul id="search-results-list" class="search-results-list">
@@ -518,22 +615,28 @@
     </div>
     <div class="resource-grid">
       <a class="resource-card" href="https://owasp.org/" target="_blank" rel="noopener noreferrer">
-        <span class="resource-icon">◈</span><strong>OWASP</strong><span>Web application security standards, projects and testing guidance.</span>
+        <span class="resource-icon">◈</span><strong>OWASP</strong><span>Web application security standards, projects and
+          testing guidance.</span>
       </a>
       <a class="resource-card" href="https://www.nist.gov/cybersecurity" target="_blank" rel="noopener noreferrer">
-        <span class="resource-icon">◉</span><strong>NIST Cybersecurity</strong><span>Frameworks, publications and security guidance.</span>
+        <span class="resource-icon">◉</span><strong>NIST Cybersecurity</strong><span>Frameworks, publications and
+          security guidance.</span>
       </a>
       <a class="resource-card" href="https://www.cisa.gov/" target="_blank" rel="noopener noreferrer">
-        <span class="resource-icon">◆</span><strong>CISA</strong><span>Operational cybersecurity guidance and advisories.</span>
+        <span class="resource-icon">◆</span><strong>CISA</strong><span>Operational cybersecurity guidance and
+          advisories.</span>
       </a>
       <a class="resource-card" href="https://www.ietf.org/standards/" target="_blank" rel="noopener noreferrer">
-        <span class="resource-icon">◇</span><strong>IETF Standards</strong><span>RFCs and Internet protocol standards.</span>
+        <span class="resource-icon">◇</span><strong>IETF Standards</strong><span>RFCs and Internet protocol
+          standards.</span>
       </a>
       <a class="resource-card" href="https://attack.mitre.org/" target="_blank" rel="noopener noreferrer">
-        <span class="resource-icon">△</span><strong>MITRE ATT&CK</strong><span>Adversary tactics and techniques knowledge base.</span>
+        <span class="resource-icon">△</span><strong>MITRE ATT&CK</strong><span>Adversary tactics and techniques
+          knowledge base.</span>
       </a>
       <a class="resource-card" href="https://www.wireshark.org/docs/" target="_blank" rel="noopener noreferrer">
-        <span class="resource-icon">▣</span><strong>Wireshark Docs</strong><span>Official packet-analysis documentation and references.</span>
+        <span class="resource-icon">▣</span><strong>Wireshark Docs</strong><span>Official packet-analysis documentation
+          and references.</span>
       </a>
     </div>
   </section>
@@ -544,16 +647,21 @@
       <div class="footer-col">
         <h4>🛡️ CyberSec Platform</h4>
         <p style="color:var(--text-dim);font-size:0.85rem;line-height:1.6;">
-          Complete engineering reference and interactive toolkit for network defense, threat intelligence, and professional security operations. Zero telemetry, 100% client-side privacy.
+          Complete engineering reference and interactive toolkit for network defense, threat intelligence, and
+          professional security operations. Zero telemetry, 100% client-side privacy.
         </p>
       </div>
       <div class="footer-col">
         <h4>📚 Curated Standards</h4>
         <ul>
-          <li><a href="https://owasp.org/www-project-top-ten/" target="_blank" rel="noopener noreferrer">OWASP Top 10 Web Application Risks</a></li>
-          <li><a href="https://csrc.nist.gov/publications/detail/sp/800-207/final" target="_blank" rel="noopener noreferrer">NIST SP 800-207 Zero Trust Architecture</a></li>
-          <li><a href="https://nmap.org/book/man.html" target="_blank" rel="noopener noreferrer">Nmap Network Scanning Reference</a></li>
-          <li><a href="https://www.wireshark.org/docs/dfref/" target="_blank" rel="noopener noreferrer">Wireshark Display Filter Reference</a></li>
+          <li><a href="https://owasp.org/www-project-top-ten/" target="_blank" rel="noopener noreferrer">OWASP Top 10
+              Web Application Risks</a></li>
+          <li><a href="https://csrc.nist.gov/publications/detail/sp/800-207/final" target="_blank"
+              rel="noopener noreferrer">NIST SP 800-207 Zero Trust Architecture</a></li>
+          <li><a href="https://nmap.org/book/man.html" target="_blank" rel="noopener noreferrer">Nmap Network Scanning
+              Reference</a></li>
+          <li><a href="https://www.wireshark.org/docs/dfref/" target="_blank" rel="noopener noreferrer">Wireshark
+              Display Filter Reference</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -568,19 +676,21 @@
     </div>
     <div class="footer-bottom">
       <div>&copy; 2026 Cybersecurity & Networking Master Platform. Built for defenders.</div>
-      <div>Keyboard Shortcuts: <kbd class="kbd-shortcut">Ctrl+K</kbd> Search | <kbd class="kbd-shortcut">Tab</kbd> Accessible Navigation</div>
+      <div>Keyboard Shortcuts: <kbd class="kbd-shortcut">Ctrl+K</kbd> Search | <kbd class="kbd-shortcut">Tab</kbd>
+        Accessible Navigation</div>
     </div>
   </footer>
 
   <!-- Scripts -->
-  <script src="data/learning-data.js"></script>
-  <script src="data/protocols-data.js"></script>
-  <script src="data/defense-data.js"></script>
-  <script src="data/attacks-data.js"></script>
-  <script src="data/tools-data.js"></script>
-  <script src="data/labs-data.js"></script>
-  <script src="data/roadmap-data.js"></script>
-  <script src="data/glossary-data.js"></script>
+  <script src="learning-data.js"></script>
+  <script src="protocols-data.js"></script>
+  <script src="defense-data.js"></script>
+  <script src="attacks-data.js"></script>
+  <script src="tools-data.js"></script>
+  <script src="labs-data.js"></script>
+  <script src="roadmap-data.js"></script>
+  <script src="glossary-data.js"></script>
   <script src="script.js"></script>
 </body>
+
 </html>

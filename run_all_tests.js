@@ -8,17 +8,17 @@ const fs = require("fs");
 const path = require("path");
 const { execSync, execFileSync, spawn } = require("child_process");
 
-const ROOT_DIR = path.resolve(__dirname, "..");
+const ROOT_DIR = __dirname;
 let PORT = 0;
 
 // Load Data Modules
-const { OSI_LAYERS_DATA, TCPIP_MODEL_DATA, PROTOCOLS_CATALOG } = require(path.join(ROOT_DIR, "data", "protocols-data.js"));
-const { FIREWALL_TYPES_DATA, IDS_IPS_DATA, SEGMENTATION_ZONES, ZERO_TRUST_PRINCIPLES } = require(path.join(ROOT_DIR, "data", "defense-data.js"));
-const { NETWORK_ATTACKS_DATA, WEB_ATTACKS_DATA } = require(path.join(ROOT_DIR, "data", "attacks-data.js"));
-const { COMMON_PORTS_DATABASE, WIRESHARK_FILTERS_CATALOG } = require(path.join(ROOT_DIR, "data", "tools-data.js"));
-const { LABS_DATA } = require(path.join(ROOT_DIR, "data", "labs-data.js"));
-const { ROADMAP_PHASES, CAREER_TRACKS } = require(path.join(ROOT_DIR, "data", "roadmap-data.js"));
-const { GLOSSARY_TERMS } = require(path.join(ROOT_DIR, "data", "glossary-data.js"));
+const { OSI_LAYERS_DATA, TCPIP_MODEL_DATA, PROTOCOLS_CATALOG } = require(path.join(ROOT_DIR, "protocols-data.js"));
+const { FIREWALL_TYPES_DATA, IDS_IPS_DATA, SEGMENTATION_ZONES, ZERO_TRUST_PRINCIPLES } = require(path.join(ROOT_DIR, "defense-data.js"));
+const { NETWORK_ATTACKS_DATA, WEB_ATTACKS_DATA } = require(path.join(ROOT_DIR, "attacks-data.js"));
+const { COMMON_PORTS_DATABASE, WIRESHARK_FILTERS_CATALOG } = require(path.join(ROOT_DIR, "tools-data.js"));
+const { LABS_DATA } = require(path.join(ROOT_DIR, "labs-data.js"));
+const { ROADMAP_PHASES, CAREER_TRACKS } = require(path.join(ROOT_DIR, "roadmap-data.js"));
+const { GLOSSARY_TERMS } = require(path.join(ROOT_DIR, "glossary-data.js"));
 
 // Load Core Engine
 const { CryptoUtils, SubnetEngine, PasswordEngine, EncoderEngine, FirewallEngine } = require(path.join(ROOT_DIR, "script.js"));
@@ -49,14 +49,14 @@ const requiredFiles = [
   "index.html",
   "styles.css",
   "script.js",
-  "data/protocols-data.js",
-  "data/defense-data.js",
-  "data/attacks-data.js",
-  "data/tools-data.js",
-  "data/labs-data.js",
-  "data/roadmap-data.js",
-  "data/glossary-data.js",
-  "data/learning-data.js"
+  "protocols-data.js",
+  "defense-data.js",
+  "attacks-data.js",
+  "tools-data.js",
+  "labs-data.js",
+  "roadmap-data.js",
+  "glossary-data.js",
+  "learning-data.js"
 ];
 
 requiredFiles.forEach(file => {
@@ -248,14 +248,14 @@ console.log("\n========================================================");
 console.log("TEST SUITE 4B: Zero-to-Pro Learning Hub");
 console.log("========================================================");
 
-const learningData = fs.readFileSync(path.join(ROOT_DIR, "data/learning-data.js"), "utf8");
+const learningData = fs.readFileSync(path.join(ROOT_DIR, "learning-data.js"), "utf8");
 assert(learningData.includes("const LEARNING_PATH"), "Learning Hub data module is present");
 const learningLevels = [...learningData.matchAll(/level:(\d+)/g)].map(m => Number(m[1]));
 assert(learningLevels.length >= 21, `Learning Hub contains ${learningLevels.length} structured levels (expected at least 21)`);
 assert(new Set(learningLevels).size === learningLevels.length, "Learning Hub levels are unique");
 assert(Math.min(...learningLevels) === 0 && Math.max(...learningLevels) === 20, "Learning Hub spans Level 0 through Level 20");
 assert(indexHtml.includes('id="view-learn"'), "Learning Hub section is wired into index.html");
-assert(indexHtml.includes('data/learning-data.js'), "Learning Hub data script is loaded");
+assert(indexHtml.includes('learning-data.js'), "Learning Hub data script is loaded");
 assert(scriptContent.includes("renderLearningHub"), "Learning Hub renderer is wired into application startup");
 
 // ========================================================
@@ -430,14 +430,14 @@ server.listen(0, "127.0.0.1", () => {
     "/index.html",
     "/styles.css",
     "/script.js",
-    "/data/protocols-data.js",
-    "/data/defense-data.js",
-    "/data/attacks-data.js",
-    "/data/tools-data.js",
-    "/data/labs-data.js",
-    "/data/roadmap-data.js",
-    "/data/glossary-data.js",
-  "/data/learning-data.js"
+    "/protocols-data.js",
+    "/defense-data.js",
+    "/attacks-data.js",
+    "/tools-data.js",
+    "/labs-data.js",
+    "/roadmap-data.js",
+    "/glossary-data.js",
+    "/learning-data.js"
   ];
 
   let completedRequests = 0;

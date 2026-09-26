@@ -7,7 +7,7 @@
 // Self-contained cryptographic implementations for offline/pure JS
 const CryptoUtils = {
   // Pure JS MD5 Implementation
-  md5: function(str) {
+  md5: function (str) {
     function safeAdd(x, y) {
       const lsw = (x & 0xffff) + (y & 0xffff);
       const msw = (x >> 16) + (y >> 16) + (lsw >> 16);
@@ -135,7 +135,7 @@ const CryptoUtils = {
       let str = "";
       for (let i = 0; i < binarray.length * 4; i++) {
         str += hexTab.charAt((binarray[i >> 2] >> ((i % 4) * 8 + 4)) & 0xf) +
-               hexTab.charAt((binarray[i >> 2] >> ((i % 4) * 8)) & 0xf);
+          hexTab.charAt((binarray[i >> 2] >> ((i % 4) * 8)) & 0xf);
       }
       return str;
     }
@@ -145,7 +145,7 @@ const CryptoUtils = {
   },
 
   // SHA-256 Implementation (Pure JS)
-  sha256: function(ascii) {
+  sha256: function (ascii) {
     function rightRotate(value, amount) {
       return (value >>> amount) | (value << (32 - amount));
     }
@@ -218,7 +218,7 @@ const CryptoUtils = {
   },
 
   // SHA-1 Implementation (Pure JS)
-  sha1: function(msg) {
+  sha1: function (msg) {
     function rotateLeft(n, s) { return (n << s) | (n >>> (32 - s)); }
     function cvtHex(val) {
       let str = "";
@@ -270,7 +270,7 @@ const CryptoUtils = {
   },
 
   // Calculate Shannon Entropy
-  entropy: function(str) {
+  entropy: function (str) {
     if (!str || str.length === 0) return 0;
     const freq = {};
     for (let i = 0; i < str.length; i++) {
@@ -290,7 +290,7 @@ const CryptoUtils = {
 // Subnet Calculator Engine
 // ========================================================
 const SubnetEngine = {
-  isValidIPv4: function(ip) {
+  isValidIPv4: function (ip) {
     if (!ip || typeof ip !== "string") return false;
     const parts = ip.trim().split(".");
     if (parts.length !== 4) return false;
@@ -301,11 +301,11 @@ const SubnetEngine = {
     });
   },
 
-  ipToInt: function(ip) {
+  ipToInt: function (ip) {
     return ip.trim().split(".").reduce((acc, oct) => ((acc << 8) + parseInt(oct, 10)) >>> 0, 0);
   },
 
-  intToIp: function(int) {
+  intToIp: function (int) {
     return [
       (int >>> 24) & 255,
       (int >>> 16) & 255,
@@ -314,7 +314,7 @@ const SubnetEngine = {
     ].join(".");
   },
 
-  intToBinary: function(int) {
+  intToBinary: function (int) {
     return [
       ((int >>> 24) & 255).toString(2).padStart(8, "0"),
       ((int >>> 16) & 255).toString(2).padStart(8, "0"),
@@ -323,7 +323,7 @@ const SubnetEngine = {
     ].join(".");
   },
 
-  calculate: function(ipStr, cidr) {
+  calculate: function (ipStr, cidr) {
     if (!ipStr || ipStr.trim() === "") {
       return { error: "Please enter an IPv4 address (e.g., 192.168.1.1)" };
     }
@@ -384,7 +384,7 @@ const SubnetEngine = {
 // Password Entropy Evaluator
 // ========================================================
 const PasswordEngine = {
-  evaluate: function(password) {
+  evaluate: function (password) {
     if (!password || password.length === 0) {
       return { error: "Please enter a password to evaluate." };
     }
@@ -457,7 +457,7 @@ const PasswordEngine = {
 // Security Encoder / Decoder
 // ========================================================
 const EncoderEngine = {
-  convert: function(input, mode, operation) {
+  convert: function (input, mode, operation) {
     if (!input || input.length === 0) {
       return { error: "Please enter text to encode or decode." };
     }
@@ -509,7 +509,7 @@ const EncoderEngine = {
 // Firewall & ACL Rule Builder
 // ========================================================
 const FirewallEngine = {
-  build: function(params) {
+  build: function (params) {
     const { action, protocol, srcIp, srcPort, dstIp, dstPort } = params;
 
     const cleanSrc = (srcIp && srcIp.trim()) ? srcIp.trim() : "any";
@@ -563,7 +563,7 @@ const App = {
     activeLab: "lab-1"
   },
 
-  init: function() {
+  init: function () {
     this.loadState();
     this.initTheme();
     this.initNavigation();
@@ -580,7 +580,7 @@ const App = {
     this.updateProgressSummary();
   },
 
-  loadState: function() {
+  loadState: function () {
     try {
       const savedTheme = localStorage.getItem("cyber_theme");
       if (savedTheme) this.state.theme = savedTheme;
@@ -591,7 +591,7 @@ const App = {
     }
   },
 
-  initTheme: function() {
+  initTheme: function () {
     document.documentElement.setAttribute("data-theme", this.state.theme);
     const themeBtn = document.getElementById("btn-theme-toggle");
     if (themeBtn) {
@@ -601,18 +601,26 @@ const App = {
         this.state.theme = this.state.theme === "dark" ? "light" : "dark";
         document.documentElement.setAttribute("data-theme", this.state.theme);
         themeBtn.textContent = this.state.theme === "dark" ? "☀️" : "🌙";
-        try { localStorage.setItem("cyber_theme", this.state.theme); } catch (e) {}
+        try { localStorage.setItem("cyber_theme", this.state.theme); } catch (e) { }
         this.showToast(`Switched to ${this.state.theme} mode`);
       });
     }
   },
 
-  initNavigation: function() {
-    const navLinks = document.querySelectorAll(".nav-link, .track-tab-btn");
+  initNavigation: function () {
+    const navLinks = document.querySelectorAll("[data-track]");
     navLinks.forEach(link => {
       link.addEventListener("click", (e) => {
         const targetTrack = link.getAttribute("data-track");
         if (targetTrack) {
+          if (targetTrack === "resources") {
+            document.querySelectorAll(".nav-link").forEach(navLink => {
+              navLink.classList.toggle("active", navLink === link);
+            });
+            const drawer = document.getElementById("mobile-nav-drawer");
+            if (drawer) drawer.classList.remove("open");
+            return;
+          }
           e.preventDefault();
           this.switchTrack(targetTrack);
           // Close mobile drawer if open
@@ -631,7 +639,7 @@ const App = {
     }
   },
 
-  switchTrack: function(trackId) {
+  switchTrack: function (trackId) {
     this.state.activeTrack = trackId;
     document.querySelectorAll(".nav-link").forEach(l => {
       l.classList.toggle("active", l.getAttribute("data-track") === trackId);
@@ -646,7 +654,7 @@ const App = {
     window.scrollTo({ top: 0, behavior: "smooth" });
   },
 
-  showToast: function(message) {
+  showToast: function (message) {
     let container = document.getElementById("toast-container");
     if (!container) {
       container = document.createElement("div");
@@ -663,7 +671,7 @@ const App = {
     }, 2500);
   },
 
-  copyToClipboard: function(text, label = "Data") {
+  copyToClipboard: function (text, label = "Data") {
     if (!text) {
       this.showToast("Nothing to copy!");
       return;
@@ -679,7 +687,7 @@ const App = {
     }
   },
 
-  fallbackCopy: function(text, label) {
+  fallbackCopy: function (text, label) {
     const el = document.createElement("textarea");
     el.value = text;
     document.body.appendChild(el);
@@ -693,7 +701,7 @@ const App = {
     document.body.removeChild(el);
   },
 
-  downloadFile: function(filename, content, type = "text/plain") {
+  downloadFile: function (filename, content, type = "text/plain") {
     const blob = new Blob([content], { type: type });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
@@ -709,7 +717,7 @@ const App = {
   // ========================================================
   // Abbreviation Tooltip Engine (Section F)
   // ========================================================
-  initTooltips: function() {
+  initTooltips: function () {
     let tooltip = document.getElementById("global-tooltip");
     if (!tooltip) {
       tooltip = document.createElement("div");
@@ -796,7 +804,7 @@ const App = {
   // ========================================================
   // Global Search Engine (Section E)
   // ========================================================
-  initSearch: function() {
+  initSearch: function () {
     const backdrop = document.getElementById("search-modal-backdrop");
     const searchInput = document.getElementById("global-search-input");
     const resultsContainer = document.getElementById("search-results-list");
@@ -843,7 +851,7 @@ const App = {
     }
   },
 
-  executeSearch: function(query, container) {
+  executeSearch: function (query, container) {
     const q = (query || "").trim().toLowerCase();
     container.innerHTML = "";
 
@@ -1004,7 +1012,7 @@ const App = {
     });
   },
 
-  escapeHTML: function(str) {
+  escapeHTML: function (str) {
     if (!str) return "";
     return str.replace(/[&<>'"]/g, tag => ({
       '&': '&amp;',
@@ -1019,7 +1027,7 @@ const App = {
   // ========================================================
   // Render Zero-to-Pro Learning Hub
   // ========================================================
-  renderLearningHub: function() {
+  renderLearningHub: function () {
     const container = document.getElementById("learning-path-grid");
     const filter = document.getElementById("learning-filter-input");
     const level = document.getElementById("learning-level-filter");
@@ -1049,7 +1057,7 @@ const App = {
   // ========================================================
   // Render Protocols View
   // ========================================================
-  renderProtocols: function() {
+  renderProtocols: function () {
     const osiContainer = document.getElementById("osi-layers-list");
     if (osiContainer && typeof OSI_LAYERS_DATA !== "undefined") {
       osiContainer.innerHTML = OSI_LAYERS_DATA.map(layer => `
@@ -1103,7 +1111,7 @@ const App = {
   // ========================================================
   // Render Defense View
   // ========================================================
-  renderDefense: function() {
+  renderDefense: function () {
     const fwContainer = document.getElementById("firewalls-grid");
     if (fwContainer && typeof FIREWALL_TYPES_DATA !== "undefined") {
       fwContainer.innerHTML = FIREWALL_TYPES_DATA.map(fw => `
@@ -1146,7 +1154,7 @@ const App = {
   // ========================================================
   // Render Attacks View
   // ========================================================
-  renderAttacks: function() {
+  renderAttacks: function () {
     const netAttacks = document.getElementById("network-attacks-grid");
     if (netAttacks && typeof NETWORK_ATTACKS_DATA !== "undefined") {
       netAttacks.innerHTML = NETWORK_ATTACKS_DATA.map(a => `
@@ -1191,7 +1199,7 @@ const App = {
   // Initialize Interactive Tool Suite (Section D)
   // Subnet, Hash, Port, Password, Encoder, Firewall, Packet, Filter
   // ========================================================
-  initTools: function() {
+  initTools: function () {
     // Tool 1: Subnet Calculator
     const btnSubnetCalc = document.getElementById("btn-calc-subnet");
     const btnSubnetReset = document.getElementById("btn-reset-subnet");
@@ -1315,7 +1323,7 @@ const App = {
         }
       }
 
-      const match = COMMON_PORTS_DATABASE.find(p => 
+      const match = COMMON_PORTS_DATABASE.find(p =>
         p.port.toString() === query || p.service.toLowerCase() === query
       );
 
@@ -1570,7 +1578,7 @@ Window Size: 65535 | Checksum: 0x2b3c | Urgent Pointer: 0
     };
 
     if (filterSelect) {
-      filterSelect.innerHTML = WIRESHARK_FILTERS_CATALOG.map(f => 
+      filterSelect.innerHTML = WIRESHARK_FILTERS_CATALOG.map(f =>
         `<option value="${f.syntax}">${f.name} (${f.syntax})</option>`
       ).join("");
       filterSelect.addEventListener("change", updateFilter);
@@ -1604,7 +1612,7 @@ Window Size: 65535 | Checksum: 0x2b3c | Urgent Pointer: 0
   // ========================================================
   // Render Interactive Labs
   // ========================================================
-  renderLabs: function() {
+  renderLabs: function () {
     const labSelector = document.getElementById("lab-selector");
     const labContainer = document.getElementById("active-lab-workspace");
     if (!labSelector || !labContainer || typeof LABS_DATA === "undefined") return;
@@ -1621,7 +1629,7 @@ Window Size: 65535 | Checksum: 0x2b3c | Urgent Pointer: 0
     this.renderActiveLab();
   },
 
-  renderActiveLab: function() {
+  renderActiveLab: function () {
     const labContainer = document.getElementById("active-lab-workspace");
     const lab = LABS_DATA.find(l => l.id === this.state.activeLab) || LABS_DATA[0];
     if (!labContainer || !lab) return;
@@ -1930,7 +1938,7 @@ Device type: router | Running: Cisco IOS 15.2
   // ========================================================
   // Render Roadmaps & Career Tracks
   // ========================================================
-  renderRoadmaps: function() {
+  renderRoadmaps: function () {
     const container = document.getElementById("roadmaps-phases-container");
     if (!container || typeof ROADMAP_PHASES === "undefined") return;
 
@@ -1957,8 +1965,8 @@ Device type: router | Running: Cisco IOS 15.2
           </div>
           <ul class="checklist-items">
             ${phase.skills.map(s => {
-              const isChecked = !!this.state.roadmapProgress[s.id];
-              return `
+        const isChecked = !!this.state.roadmapProgress[s.id];
+        return `
                 <li class="check-item ${isChecked ? 'completed' : ''}" data-skill-id="${s.id}">
                   <input type="checkbox" id="chk-${s.id}" ${isChecked ? 'checked' : ''}>
                   <label for="chk-${s.id}" style="cursor:pointer;flex:1;">
@@ -1966,7 +1974,7 @@ Device type: router | Running: Cisco IOS 15.2
                   </label>
                 </li>
               `;
-            }).join("")}
+      }).join("")}
           </ul>
         </div>
       `;
@@ -1997,13 +2005,13 @@ Device type: router | Running: Cisco IOS 15.2
         if (parentLi) parentLi.classList.toggle("completed", e.target.checked);
         try {
           localStorage.setItem("cyber_roadmap_progress", JSON.stringify(this.state.roadmapProgress));
-        } catch (err) {}
+        } catch (err) { }
         this.updateProgressSummary();
       });
     });
   },
 
-  updateProgressSummary: function() {
+  updateProgressSummary: function () {
     if (typeof ROADMAP_PHASES === "undefined") return;
 
     let grandTotal = 0;
@@ -2036,14 +2044,14 @@ Device type: router | Running: Cisco IOS 15.2
   // ========================================================
   // Render Glossary View
   // ========================================================
-  renderGlossary: function() {
+  renderGlossary: function () {
     const container = document.getElementById("glossary-terms-grid");
     const filterInput = document.getElementById("glossary-filter-input");
     if (!container || typeof GLOSSARY_TERMS === "undefined") return;
 
     const renderList = (filter = "") => {
       const q = filter.trim().toLowerCase();
-      const filtered = GLOSSARY_TERMS.filter(t => 
+      const filtered = GLOSSARY_TERMS.filter(t =>
         !q || t.term.toLowerCase().includes(q) || t.fullForm.toLowerCase().includes(q) || t.description.toLowerCase().includes(q)
       );
 

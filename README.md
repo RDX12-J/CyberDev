@@ -69,5 +69,5 @@ Each tool handles valid, invalid, empty, and boundary inputs, and includes 1-cli
 - Interactive features are browser-local wherever possible.
 - External resources are limited to trusted primary/official documentation links and use `noopener noreferrer`.
 - Reduced-motion support and keyboard skip navigation are included.
-- Automated test suite should be run with `node test/run_all_tests.js`.
+- Automated test suite should be run with `node run_all_tests.js`.
 - Do not interpret a successful local test run as a guarantee of complete browser compatibility; verify the final deployment in current desktop and mobile browsers.
