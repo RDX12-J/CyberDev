@@ -55,37 +55,6 @@ Each tool handles valid, invalid, empty, and boundary inputs, and includes 1-cli
 
 ---
 
-## 🚀 How to Run the Website
-
-### Option 1: Direct File Launch
-Double click `index.html` or open in any web browser:
-```powershell
-Start-Process "C:\Users\Dhankhar\.gemini\antigravity\scratch\cybersecurity-portal\index.html"
-```
-
-### Option 2: Local HTTP Server (Recommended)
-Run a local development server on port 8080:
-```powershell
-cd "C:\Users\Dhankhar\.gemini\antigravity\scratch\cybersecurity-portal"
-node -e "const http=require('http'),fs=require('fs'),path=require('path');http.createServer((q,s)=>{let p=q.url.split('?')[0];if(p==='/')p='/index.html';let f=path.join('.',p);if(fs.existsSync(f)&&fs.statSync(f).isFile()){s.writeHead(200,{'Content-Type':f.endsWith('.html')?'text/html':(f.endsWith('.css')?'text/css':'application/javascript')});s.end(fs.readFileSync(f));}else{s.writeHead(404);s.end('Not Found');}}).listen(8080,()=>console.log('Server running at http://localhost:8080'));"
-```
-Or with Python:
-```powershell
-cd "C:\Users\Dhankhar\.gemini\antigravity\scratch\cybersecurity-portal"
-python -m http.server 8080
-```
-Open in browser: [http://localhost:8080](http://localhost:8080)
-
----
-
-## 🧪 Automated Testing & Verification
-
-Run the comprehensive test suite (the test server automatically selects a free local port):
-```powershell
-cd "C:\Users\Dhankhar\.gemini\antigravity\scratch\cybersecurity-portal"
-node test/run_all_tests.js
-```
-
 ### Test Coverage Highlights:
 - Automated assertions cover file integrity, interactive tools, search, glossary, responsive CSS, HTTP serving, and browser rendering. The exact count is reported by the test runner after each run.
 - **All 8 Tools** tested across Valid, Invalid, Empty, Boundary inputs, Copy, Reset, and Download.
